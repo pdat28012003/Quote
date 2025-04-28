@@ -26,7 +26,7 @@ const CartPage = () => {
       });
       return total.toLocaleString("en-IN", {
         style: "currency",
-        currency: "INR",
+        currency: "VND",
       });
     } catch (error) {
       console.log(error);
@@ -142,7 +142,7 @@ const CartPage = () => {
               </p>
               <hr className="border-gray-300 mb-4" />
               <h4 className="text-xl font-semibold text-green-600">
-                Total: ₹{totalPrice()}
+                Total: {totalPrice()}
               </h4>
 
               {auth?.user?.address ? (
