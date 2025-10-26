@@ -1,4 +1,4 @@
-# Watch E-Commerce Website
+# E-Commerce Website
 
 
 ## Features
@@ -41,7 +41,7 @@
 2. Change to the project directory:
 
    ```bash
-   cd watch-ecommerce
+   cd Ecommerce-Shopping
    ```
 
 3. Install dependencies for the server:
