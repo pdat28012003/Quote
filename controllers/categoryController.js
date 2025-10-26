@@ -113,3 +113,33 @@ export const deleteCategoryCOntroller = async (req, res) => {
     });
   }
 };
+
+// get category by name
+export const getCategoryByNameController = async (req, res) => {
+  try {
+    const { name } = req.params;
+    const category = await categoryModel.findOne({
+      name: { $regex: name, $options: "i" },
+    });
+
+    if (!category) {
+      return res.status(404).send({
+        success: false,
+        message: "Category not found",
+      });
+    }
+
+    res.status(200).send({
+      success: true,
+      message: "Category found successfully",
+      category,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      error,
+      message: "Error while getting category by name",
+    });
+  }
+};

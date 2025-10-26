@@ -4,6 +4,7 @@ import {
   categoryControlller,
   createCategoryController,
   deleteCategoryCOntroller,
+  getCategoryByNameController,
   singleCategoryController,
   updateCategoryController,
 } from "./../controllers/categoryController.js";
@@ -40,5 +41,8 @@ router.delete(
   isAdmin,
   deleteCategoryCOntroller
 );
+
+//get category by name
+router.get("/category-by-name/:name", getCategoryByNameController);
 
 export default router;

@@ -1,6 +1,5 @@
 # Watch E-Commerce Website
 
-Welcome to our Watch E-Commerce platform built using the MERN (MongoDB, Express.js, React.js, Node.js) stack!
 
 ## Features
 
@@ -23,14 +22,6 @@ Welcome to our Watch E-Commerce platform built using the MERN (MongoDB, Express.
 - **Payment Gateway Integration:**
   - Safely complete transactions using our integrated payment gateway.
 
-## Screenshots
-
-- ![1737484803443](image/README/1737484803443.png)
-- ![1737655558153](image/README/1737655558153.png)
-- ![1737484889724](image/README/1737484889724.png)
-- ![1737484924716](image/README/1737484924716.png)
-- ![1737484961894](image/README/1737484961894.png)
-- ![image](https://github.com/AshutoshRajGupta/watch-ecommerce/assets/89141709/da996c37-6cae-4444-978f-2ba948743a6b)
 
 ## Getting Started
 

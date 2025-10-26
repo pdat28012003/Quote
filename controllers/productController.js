@@ -19,8 +19,15 @@ var gateway = new braintree.BraintreeGateway({
 
 export const createProductController = async (req, res) => {
   try {
-    const { name, description, price, category, quantity, shipping } =
-      req.fields;
+    const {
+      name,
+      description,
+      price,
+      category,
+      quantity,
+      shipping,
+      contactForPrice,
+    } = req.fields;
     const { photo } = req.files;
     //alidation
     switch (true) {
@@ -28,7 +35,7 @@ export const createProductController = async (req, res) => {
         return res.status(500).send({ error: "Name is Required" });
       case !description:
         return res.status(500).send({ error: "Description is Required" });
-      case !price:
+      case !price && contactForPrice !== "true":
         return res.status(500).send({ error: "Price is Required" });
       case !category:
         return res.status(500).send({ error: "Category is Required" });
@@ -146,8 +153,15 @@ export const deleteProductController = async (req, res) => {
 // //upate producta
 export const updateProductController = async (req, res) => {
   try {
-    const { name, description, price, category, quantity, shipping } =
-      req.fields;
+    const {
+      name,
+      description,
+      price,
+      category,
+      quantity,
+      shipping,
+      contactForPrice,
+    } = req.fields;
     const { photo } = req.files;
     //alidation
     switch (true) {
@@ -155,7 +169,7 @@ export const updateProductController = async (req, res) => {
         return res.status(500).send({ error: "Name is Required" });
       case !description:
         return res.status(500).send({ error: "Description is Required" });
-      case !price:
+      case !price && contactForPrice !== "true":
         return res.status(500).send({ error: "Price is Required" });
       case !category:
         return res.status(500).send({ error: "Category is Required" });

@@ -116,84 +116,7 @@ const HomePage = () => {
         alt="bannerimage"
         width={"100%"}
       /> */}
-      <div>
-        <div id="carouselExampleCaptions" className="carousel slide">
-          <div className="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="0"
-              className="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
-          </div>
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img src="/images/cbg2.jpg" className="d-block w-100" alt="..." />
-              <div className="carousel-caption d-none d-md-block">
-                <h5>Unleash Your Style </h5>
-                <p>- Shop the Trendiest Fashion Today!</p>
-              </div>
-            </div>
-            <div className="carousel-item">
-              <img
-                src="/images/cbg3_1.jpg"
-                className="d-block w-100"
-                alt="..."
-              />
-              <div className="carousel-caption d-none d-md-block">
-                <h5>Discover Your Perfect Fit </h5>
-                <p> - Find the Ideal Products for You.</p>
-              </div>
-            </div>
-            <div className="carousel-item">
-              <img src="/images/cbg1.jpg" className="d-block w-100" alt="..." />
-
-              <div className="carousel-caption d-none d-md-block">
-                <h5>Your Fashion Destination</h5>
-                <p> - Discover Endless Style Possibilities.</p>
-              </div>
-            </div>
-          </div>
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev"
-          >
-            <span
-              className="carousel-control-prev-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next"
-          >
-            <span
-              className="carousel-control-next-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Next</span>
-          </button>
-        </div>
-      </div>
+      <div></div>
       {/* banner image */}
       <div className="container-fluid row mt-3 home-page">
         <div className="col-md-3 filters p-4 stylish-card">
@@ -252,10 +175,14 @@ const HomePage = () => {
                   <div className="card-name-price mb-3">
                     <h5 className="card-title product-title">{p.name}</h5>
                     <h5 className="card-title product-price">
-                      {p.price.toLocaleString("en-US", {
-                        style: "currency",
-                        currency: "USD",
-                      })}
+                      {p.contactForPrice ? (
+                        <span className="badge bg-warning">Liên hệ để báo giá</span>
+                      ) : (
+                        p.price?.toLocaleString("en-US", {
+                          style: "currency",
+                          currency: "USD",
+                        })
+                      )}
                     </h5>
                   </div>
                   <p className="card-text product-description">

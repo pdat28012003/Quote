@@ -22,7 +22,9 @@ const CartPage = () => {
     try {
       let total = 0;
       cart?.map((item) => {
-        total = total + item.price;
+        if (!item.contactForPrice && item.price) {
+          total = total + parseInt(item.price);
+        }
       });
       return total.toLocaleString("en-IN", {
         style: "currency",
@@ -119,7 +121,13 @@ const CartPage = () => {
                     <p className="text-gray-600 text-sm">
                       {p.description.substring(0, 30)}...
                     </p>
-                    <p className="text-blue-600 font-bold">₹{p.price}</p>
+                    <p className="text-blue-600 font-bold">
+                      {p.contactForPrice ? (
+                        <span className="badge bg-warning">Liên hệ để báo giá</span>
+                      ) : (
+                        `₹${p.price}`
+                      )}
+                    </p>
                   </div>
                   <div className="col-md-3 cart-remove-btn text-center">
                     <button

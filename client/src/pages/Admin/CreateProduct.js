@@ -17,6 +17,7 @@ const CreateProduct = () => {
   const [quantity, setQuantity] = useState("");
   const [shipping, setShipping] = useState("");
   const [photo, setPhoto] = useState("");
+  const [contactForPrice, setContactForPrice] = useState(false);
 
   //get all category
   const getAllCategory = async () => {
@@ -42,19 +43,22 @@ const CreateProduct = () => {
       const productData = new FormData();
       productData.append("name", name);
       productData.append("description", description);
-      productData.append("price", price);
+      if (!contactForPrice) {
+        productData.append("price", price);
+      }
       productData.append("quantity", quantity);
       productData.append("photo", photo);
       productData.append("category", category);
-      const { data } = axios.post(
+      productData.append("contactForPrice", contactForPrice);
+      const { data } = await axios.post(
         "/api/v1/product/create-product",
         productData
       );
       if (data?.success) {
-        toast.error(data?.message);
-      } else {
-        toast.success("Product Created Successfully");
+        toast.success(data?.message);
         navigate("/dashboard/admin/products");
+      } else {
+        toast.error(data?.message);
       }
     } catch (error) {
       console.log(error);
@@ -133,12 +137,29 @@ const CreateProduct = () => {
 
               <div className="mb-3">
                 <input
-                  type="number"
+                  type="string"
                   value={price}
                   placeholder="write a Price"
                   className="form-control"
                   onChange={(e) => setPrice(e.target.value)}
+                  disabled={contactForPrice}
                 />
+              </div>
+              <div className="mb-3">
+                <label className="form-check-label">
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    checked={contactForPrice}
+                    onChange={(e) => {
+                      setContactForPrice(e.target.checked);
+                      if (e.target.checked) {
+                        setPrice("");
+                      }
+                    }}
+                  />
+                  Liên hệ để báo giá
+                </label>
               </div>
               <div className="mb-3">
                 <input

@@ -92,10 +92,14 @@ const ProductDetails = () => {
           >
             <i className="fas fa-rupee-sign"></i>
             Price:{" "}
-            {product?.price?.toLocaleString("en-IN", {
-              style: "currency",
-              currency: "INR",
-            })}
+            {product?.contactForPrice ? (
+              <span className="badge bg-warning">Liên hệ để báo giá</span>
+            ) : (
+              product?.price?.toLocaleString("vnd", {
+                style: "currency",
+                currency: "vnd",
+              })
+            )}
           </h5>
           <h5
             style={{ textAlign: "left", marginBottom: "20px", color: "#555" }}
@@ -141,10 +145,14 @@ const ProductDetails = () => {
                 <div className="card-name-price">
                   <h5 className="card-title">{p.name}</h5>
                   <h5 className="card-title card-price">
-                    {p.price.toLocaleString("en-IN", {
-                      style: "currency",
-                      currency: "INR",
-                    })}
+                    {p.contactForPrice ? (
+                      <span className="badge bg-warning">Liên hệ để báo giá</span>
+                    ) : (
+                      p.price?.toLocaleString("en-IN", {
+                        style: "currency",
+                        currency: "INR",
+                      })
+                    )}
                   </h5>
                 </div>
                 <p className="card-text ">

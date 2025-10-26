@@ -15,8 +15,11 @@ const productSchema = new mongoose.Schema(
       required: true,
     },
     price: {
-      type: Number,
-      required: true,
+      type: String,
+    },
+    contactForPrice: {
+      type: Boolean,
+      default: false,
     },
     category: {
       type: mongoose.ObjectId,
